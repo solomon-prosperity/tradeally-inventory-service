@@ -31,7 +31,7 @@ Access `http://localhost:<PORT>` and you're ready to go!
 2. install neccesary dependencies using `yarn install`
 3. create `.env` file in root directory, populate with variables values in the `.env.example` file 
 4. run `yarn seed:user` to seed your database with a user, an ApiKey for that user will be logged on your console, copy the apiKey and replace with the apiKey variable in `/seeds/seedProducts` then run `yarn seed:products` to seed the database with product data
-5. start the server locally using `yarn start:dev:rs`
+5. start the server locally using `yarn start:dev`
 6. Access the default url with `http://localhost:<PORT>` 
 > http://localhost:40121/
 
@@ -53,9 +53,8 @@ Access `http://localhost:<PORT>` and you're ready to go!
 - `yarn lint` - lint codebase using Airbnb style
 - `yarn lint:fix` - fix code according to Airbnb style
 - `yarn build:docs` - generate Rest API, Readme & JSDC documenation
-- `yarn update:stub` - update submodules
-- `yarn start:jaeger:dev` - start a local Jaeger server and serve
-- `yarn stop:jaeger:dev` - stop a local Jaeger container
+- `yarn seed:user` - seed database with user data
+- `yarn seed:products` - seed database with products data
 
 ### Databases & Messaging
 
