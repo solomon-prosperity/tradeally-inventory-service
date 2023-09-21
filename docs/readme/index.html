@@ -1,0 +1,215 @@
+<style>
+/*!
+ * GitHub.com style
+ *
+ * GitHub Light v0.5.0
+ * https://github.com/primer/github-syntax-light
+ */
+
+ .hljs {
+  color: #24292e;
+  background: #ffffff;
+}
+
+.hljs-doctag,
+.hljs-keyword,
+.hljs-meta-keyword,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-type {
+  /* prettylights-syntax-keyword */
+  color: #d73a49;
+}
+
+.hljs-title {
+  /* prettylights-syntax-entity */
+  color: #6f42c1;
+}
+
+.hljs-attr,
+.hljs-attribute,
+.hljs-literal,
+.hljs-meta,
+.hljs-number,
+.hljs-variable,
+.hljs-selector-attr,
+.hljs-selector-class,
+.hljs-selector-id {
+  /* prettylights-syntax-constant */
+  color: #005cc5;
+}
+
+.hljs-regexp,
+.hljs-string,
+.hljs-meta-string {
+  /* prettylights-syntax-string */
+  color: #032f62;
+}
+
+.hljs-built_in,
+.hljs-symbol,
+.hljs-title.hljs-class,
+.hljs-class .hljs-title {
+  /* prettylights-syntax-variable */
+  color: #e36209;
+}
+
+.hljs-comment,
+.hljs-code,
+.hljs-formula {
+  /* prettylights-syntax-comment */
+  color: #6a737d;
+}
+
+.hljs-name,
+.hljs-quote,
+.hljs-selector-tag,
+.hljs-selector-pseudo {
+  /* prettylights-syntax-entity-tag */
+  color: #22863a;
+}
+
+.hljs-subst {
+  /* prettylights-syntax-storage-modifier-import */
+  color: #24292e;
+}
+
+.hljs-section {
+  /* prettylights-syntax-markup-heading */
+  color: #005cc5;
+  font-weight: bold;
+}
+
+.hljs-bullet {
+  /* prettylights-syntax-markup-list */
+  color: #735c0f;
+}
+
+.hljs-emphasis {
+  /* prettylights-syntax-markup-italic */
+  color: #24292e;
+  font-style: italic;
+}
+
+.hljs-strong {
+  /* prettylights-syntax-markup-bold */
+  color: #24292e;
+  font-weight: bold;
+}
+
+.hljs-addition {
+  /* prettylights-syntax-markup-inserted */
+  color: #22863a;
+  background-color: #f0fff4;
+}
+
+.hljs-deletion {
+  /* prettylights-syntax-markup-deleted */
+  color: #b31d28;
+  background-color: #ffeef0;
+}
+
+</style><h1 id="tradeally-inventory-service">Tradeally Inventory Service</h1>
+<blockquote>
+<p>RESTful/gRPC api with Domain Driven Design</p>
+</blockquote>
+<h2 id="development-environment-setup">Development Environment Setup</h2>
+<ol>
+<li> Make sure you have <code>nvm</code>, node <code>v18.17.0</code> or <code>LTS</code> version of node installed</li>
+<li> Install <code>yarn</code> - <code>npm install -g yarn</code>.</li>
+</ol>
+<h2 id="documentation">Documentation</h2>
+<p>Find the API documentation <a href="https://tradeally-inventory-service.onrender.com/docs">HERE</a></p>
+<h2 id="docker-support">Docker support</h2>
+<p><strong>Prerequisites</strong></p>
+<ol>
+<li><a href="https://www.docker.com/products/docker-engine">Docker</a> Community Edition v17 or higher</li>
+</ol>
+<pre><code class="language-sh">$ docker build -t tradeally-inventory-service  .
+$ docker run -p 30041:30041 -p 30042:30042 --env-file=.env  tradeally-inventory-service
+</code></pre>
+<p>Access <code>http://localhost:&lt;PORT&gt;</code> and you&#39;re ready to go!</p>
+<blockquote>
+<p><a href="http://localhost:30041/">http://localhost:30041/</a></p>
+</blockquote>
+<h2 id="quick-start">Quick Start</h2>
+<ol>
+<li>to clone the project <code>git clone https://github.com/solomon-prosperity/tradeally-inventory-service.git</code></li>
+<li>install neccesary dependencies using <code>yarn install</code></li>
+<li>create <code>.env</code> file in root directory, populate with variables values in the <code>.env.example</code> file </li>
+<li>start the server locally using <code>yarn start:dev:rs</code></li>
+<li>Access the default url with <code>http://localhost:&lt;PORT&gt;</code> <blockquote>
+<p><a href="http://localhost:40121/">http://localhost:40121/</a></p>
+</blockquote>
+</li>
+</ol>
+<h2 id="overview">Overview</h2>
+<ul>
+<li>uses Node.js &gt; v9</li>
+<li>written using ES6</li>
+<li>uses Yarn for package dependency management</li>
+<li>uses <a href="https://github.com/airbnb/javascript">Airbnb JavaScript Style</a></li>
+<li>uses <code>Mongoose</code> as ODM</li>
+<li>Filename convention - <code>camelCase</code></li>
+</ul>
+<h2 id="cli-tools">CLI Tools</h2>
+<ul>
+<li><code>yarn build</code> - build codebase for production</li>
+<li><code>yarn start:dev</code> - start the application in development mode</li>
+<li><code>yarn start:dev:rs</code> - start the application in development mode with nodemon for automatic server restart on code change</li>
+<li><code>yarn test</code> - run Unit tests</li>
+<li><code>yarn lint</code> - lint codebase using Airbnb style</li>
+<li><code>yarn lint:fix</code> - fix code according to Airbnb style</li>
+<li><code>yarn build:docs</code> - generate Rest API, Readme &amp; JSDC documenation</li>
+<li><code>yarn update:stub</code> - update submodules</li>
+<li><code>yarn start:jaeger:dev</code> - start a local Jaeger server and serve</li>
+<li><code>yarn stop:jaeger:dev</code> - stop a local Jaeger container</li>
+</ul>
+<h3 id="databases--messaging">Databases &amp; Messaging</h3>
+<ul>
+<li><a href="https://www.mongodb.com">Mongodb</a> - Main datastore</li>
+<li><a href="https://redis.io/">Redis</a> - In-memory datastore for caching</li>
+<li><a href="https://www.elastic.co/elasticsearch/">Elasticsearch</a> - Elasticsearch is a distributed, RESTful search and analytics engine</li>
+<li><a href="https://www.rabbitmq.com/">RabbitMq</a> - Message Broker</li>
+</ul>
+<h2 id="some-tech">Some Tech</h2>
+<ul>
+<li><p><a href="https://expressjs.com/">Express</a> - Node Framweork</p>
+</li>
+<li><p><a href="https://github.com/jeffijoe/awilix">Awilix</a> - dependency resolution support powered by <code>Proxy</code></p>
+</li>
+<li><p><a href="https://nodemon.io/">Nodemon</a> - Use for development file reload.</p>
+</li>
+<li><p><a href="https://github.com/expressjs/cors">CORS</a> - a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.</p>
+</li>
+<li><p><a href="https://github.com/expressjs/compression">Compression</a> - Node.js compression middleware.</p>
+</li>
+<li><p><a href="https://github.com/adaltas/node-http-status">Http-status</a> - Utility to interact with HTTP status code.</p>
+</li>
+<li><p><a href="https://github.com/winstonjs/winston">Winston</a> - A multi-transport async logging library for node.js.</p>
+</li>
+<li><p><a href="https://github.com/expressjs/morgan">Morgan</a> - HTTP request logger middleware for node.js</p>
+</li>
+<li><p><a href="https://lodash.com/">Lodash</a> - A modern JavaScript utility library delivering modularity, performance &amp; extras</p>
+</li>
+<li><p><a href="https://mongoosejs.com/">Mongoose</a> - Mongoose provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks and more, out of the box.</p>
+</li>
+<li><p><a href="https://chancejs.com/">Chance</a> - generate massive amounts of fake data in the browser and node.js</p>
+</li>
+<li><p><a href="https://momentjs.com/">Moment</a> - Parse, validate, manipulate, and display dates and times in JavaScript.</p>
+</li>
+<li><p><a href="https://momentjs.com/timezone/">Moment-timezone</a> - Parse and display dates in any timezone.</p>
+</li>
+<li><p><a href="https://apidocjs.com/">APIdocjs</a>- Inline Documentation for RESTful web APIs</p>
+</li>
+</ul>
+<h3 id="tests">Tests</h3>
+<ul>
+<li><a href="https://mochajs.org/">mocha</a> - JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun</li>
+<li><a href="http://chaijs.com/">chai</a> - a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework.</li>
+<li><a href="https://github.com/visionmedia/supertest">supertest</a> - HTTP assertions made easy via superagent.</li>
+</ul>
+<h2 id="author">Author</h2>
+<p><a href="https://www.linkedin.com/in/prosper-eravwuvieke-25b534163/">Eravwuvieke Prosper Ilouoghene</a></p>
+<h2 id="license">License</h2>
+<p>MIT License - fork, modify and use however you want.</p>

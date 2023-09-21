@@ -1,0 +1,16 @@
+define({
+  "name": "Tradeally Inventory Service",
+  "version": "1.0.0",
+  "description": "apiDoc for the Tradeally Inventory Service",
+  "title": "Tradeally Inventory Service API Documentation",
+  "url": "https://tradeally-inventory-service.onrender.com",
+  "sampleUrl": "https://tradeally-inventory-service.onrender.com",
+  "defaultVersion": "0.0.0",
+  "apidoc": "0.3.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2023-09-21T03:47:28.387Z",
+    "url": "https://apidocjs.com",
+    "version": "0.25.0"
+  }
+});
