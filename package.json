@@ -13,6 +13,8 @@
     "build": "babel src --delete-dir-on-start  -d dist",
     "build:docs": "yarn jsdoc && yarn restdoc && yarn readmedoc",
     "lint:staged": "lint-staged",
+    "seed:user": "NODE_ENV=development yarn build && node dist/seeds/seedUser.js",
+    "seed:products": "NODE_ENV=development yarn build && node dist/seeds/seedProducts.js",
     "start:dev": "NODE_ENV=development yarn build && node dist/start.js",
     "start": "NODE_ENV=production yarn build && yarn build:docs && node dist/start.js",
     "start:dev:rs": "nodemon",

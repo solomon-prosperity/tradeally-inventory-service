@@ -30,8 +30,9 @@ Access `http://localhost:<PORT>` and you're ready to go!
 1. to clone the project `git clone https://github.com/solomon-prosperity/tradeally-inventory-service.git`
 2. install neccesary dependencies using `yarn install`
 3. create `.env` file in root directory, populate with variables values in the `.env.example` file 
-4. start the server locally using `yarn start:dev:rs`
-5. Access the default url with `http://localhost:<PORT>` 
+4. run `yarn seed:user` to seed your database with a user, an ApiKey for that user will be logged on your console, copy the apiKey and replace with the apiKey variable in `/seeds/seedProducts` then run `yarn seed:products` to seed the database with product data
+5. start the server locally using `yarn start:dev:rs`
+6. Access the default url with `http://localhost:<PORT>` 
 > http://localhost:40121/
 
 ## Overview
