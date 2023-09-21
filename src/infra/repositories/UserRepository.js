@@ -28,7 +28,7 @@ class UserRepository extends BaseRepository {
         const response = await this.runInTransaction(async (session) => {
           // check for already existing user
           const isUser = await this.User.findOne({ email });
-          if (isUser) throw new ConflictError("User with this email already exists");
+          if (isUser) throw new ConflictError("A User with this email already exists");
           const apiKey = generateAPIKey(email);
           const user = this.createDoc({ companyName, registrationNumber, email, apiKey }, session);
           return user;
